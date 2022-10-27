@@ -7,11 +7,11 @@ namespace RodriguezMMagic8Ball.Controllers;
 public class EndpointController : ControllerBase
 {
     [HttpGet]
-    [Route("Magic8Ball")]
+    [Route("Magic8Ball/{question}")]
 
-    public string Magic8Ball()
+    public string Magic8Ball(string question)
     {
-        string wordOutput = "";
+        string wordOutput = question;
         Random rndNum = new Random();
         long num = rndNum.Next(1,9);
 
@@ -64,6 +64,7 @@ public class EndpointController : ControllerBase
             wordOutput = "Ask Again";
 
             break;
+
         }
 
         return wordOutput;
